@@ -2,8 +2,10 @@ name: Release
 
 on:
   push:
-    tags:
-      - "v*"
+    paths:
+      - 'manifest.json'
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -14,11 +16,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Extract version from manifest
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' manifest.json)
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Package
         run: |
-          mkdir -p dist
-          zip -r dist/null-tab-${{ github.ref_name }}.zip manifest.json newtab.html newtab.css icons README.md PRIVACY_POLICY.md
-      - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
+          zip -r null-tab-${{ steps.get_version.outputs.VERSION }}.zip manifest.json newtab.html newtab.css icons
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
         with:
-          files: dist/null-tab-${{ github.ref_name }}.zip
+          tag: v${{ steps.get_version.outputs.VERSION }}
+          artifacts: null-tab-${{ steps.get_version.outputs.VERSION }}.zip
+          skipIfReleaseExists: true

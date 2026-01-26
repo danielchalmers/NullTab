@@ -2,10 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Preview New Tab",
-      "type": "pwa-chrome",
+      "name": "Launch Edge with Extension",
+      "type": "msedge",
       "request": "launch",
-      "file": "${workspaceFolder}/newtab.html"
+      "runtimeArgs": [
+        "--disable-extensions-except=${workspaceFolder}",
+        "--load-extension=${workspaceFolder}"
+      ],
+      "url": "edge://newtab/"
     }
   ]
 }
