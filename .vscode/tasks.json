@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Validate manifest",
+      "type": "shell",
+      "command": "python3 -m json.tool manifest.json > /tmp/null-tab-manifest.json",
+      "problemMatcher": []
+    },
+    {
+      "label": "Create release zip",
+      "type": "shell",
+      "command": "mkdir -p dist && zip -r dist/null-tab.zip manifest.json newtab.html newtab.css icons README.md PRIVACY_POLICY.md",
+      "problemMatcher": []
+    }
+  ]
+}

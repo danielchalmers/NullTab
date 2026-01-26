@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate manifest
+        run: python3 -m json.tool manifest.json > /tmp/manifest.json
+      - name: Ensure no scripts in new tab
+        run: |
+          if grep -i -n "<script" newtab.html; then
+            echo "Scripts are not allowed in the new tab page."
+            exit 1
+          fi
+      - name: Ensure icons exist
+        run: |
+          test -f icons/null-tab-16.png
+          test -f icons/null-tab-32.png
+          test -f icons/null-tab-48.png
+          test -f icons/null-tab-128.png
