@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Null Tab",
   "short_name": "Null Tab",
-  "description": "Blank new tab page for focus and speed. Minimal, distraction-free, theme-aware.",
+  "description": "A blank new tab page. No widgets, no permissions, no scripts. Follows your light or dark theme.",
   "version": "1.0.0",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
