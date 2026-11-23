@@ -25,7 +25,7 @@ jobs:
 
       - name: Package
         run: |
-          zip -r null-tab-${{ steps.get_version.outputs.VERSION }}.zip manifest.json newtab.html newtab.css icons
+          zip -r null-tab-${{ steps.get_version.outputs.VERSION }}.zip manifest.json newtab.html icons
 
       - name: Create GitHub release
         uses: ncipollo/release-action@v1

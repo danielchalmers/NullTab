@@ -9,5 +9,5 @@ Null Tab is a free, open-source Chrome extension that replaces the new tab page 
 
 - No widgets, no feeds, no noise.
 - The background follows your light or dark theme.
-- Zero permissions and zero scripts. The whole extension is one HTML file and one CSS file.
+- Zero permissions and zero scripts. The whole extension is one HTML file.
 - Nothing is collected or sent anywhere ([privacy policy](PRIVACY_POLICY.md)).
