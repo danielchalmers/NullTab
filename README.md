@@ -11,5 +11,3 @@ Null Tab is a free, open-source Chrome extension that replaces the new tab page 
 - The background follows your light or dark theme.
 - Zero permissions and zero scripts. The whole extension is one HTML file and one CSS file.
 - Nothing is collected or sent anywhere ([privacy policy](PRIVACY_POLICY.md)).
-
-Want a few widgets instead of none? [Dayboard](https://github.com/danielchalmers/Dayboard) puts clocks, countdowns, notes, and habits on the new tab page.
